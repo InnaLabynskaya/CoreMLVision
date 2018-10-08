@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.23.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5sD-Ii-2Nh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.16.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="AnU-HB-Wum">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="5sD-Ii-2Nh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b0v-GO-L99">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="O60-qL-02g" kind="relationship" relationship="rootViewController" id="ROC-b9-viV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jht-0t-rq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-986" y="58"/>
+        </scene>
+        <!--CoreML and Vision-->
+        <scene sceneID="HmF-uT-x8E">
+            <objects>
+                <viewController id="O60-qL-02g" customClass="ViewController" customModule="CoreMLVision" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xy9-mr-qfa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="H85-en-lyL">
+                                <rect key="frame" x="16" y="80" width="343" height="299"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="299" id="KJY-yO-Aeb"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q9L-Mr-W69">
+                                <rect key="frame" x="16" y="387" width="343" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q9L-Mr-W69" firstAttribute="leading" secondItem="tZn-M6-gWq" secondAttribute="leading" constant="16" id="Atl-ZM-7Kd"/>
+                            <constraint firstItem="H85-en-lyL" firstAttribute="top" secondItem="tZn-M6-gWq" secondAttribute="top" constant="16" id="EtE-s8-RJB"/>
+                            <constraint firstItem="tZn-M6-gWq" firstAttribute="trailing" secondItem="Q9L-Mr-W69" secondAttribute="trailing" constant="16" id="QWZ-Os-Jlf"/>
+                            <constraint firstItem="Q9L-Mr-W69" firstAttribute="top" secondItem="H85-en-lyL" secondAttribute="bottom" constant="8" id="YdT-zR-09Y"/>
+                            <constraint firstItem="tZn-M6-gWq" firstAttribute="bottom" secondItem="Q9L-Mr-W69" secondAttribute="bottom" constant="20" id="aKl-Op-h4j"/>
+                            <constraint firstItem="H85-en-lyL" firstAttribute="leading" secondItem="tZn-M6-gWq" secondAttribute="leading" constant="16" id="xyh-YW-qx7"/>
+                            <constraint firstItem="tZn-M6-gWq" firstAttribute="trailing" secondItem="H85-en-lyL" secondAttribute="trailing" constant="16" id="zus-r2-VaP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tZn-M6-gWq"/>
                     </view>
+                    <navigationItem key="navigationItem" title="CoreML and Vision" id="IoX-33-Vzk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="HcY-HQ-Gia">
+                            <connections>
+                                <action selector="openPhotoLibraryButtonPressed:" destination="O60-qL-02g" id="PnS-oR-BOW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="Q9L-Mr-W69" id="XUk-ky-MmL"/>
+                        <outlet property="photoImageView" destination="H85-en-lyL" id="Dc1-fZ-ybs"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="255-ny-cKN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-161" y="57"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder.png" width="299" height="299"/>
+    </resources>
 </document>

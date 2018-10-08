@@ -8,13 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    private var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.delegate = self
     }
 
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true, completion: nil)
+        guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            return
+        }
+        self.photoImageView.image = pickedImage
+    }
+    
+    @IBAction func openPhotoLibraryButtonPressed(_ sender: UIBarButtonItem) {
+        self.present(self.imagePicker, animated: true, completion: nil)
+    }
+    
 }
 
