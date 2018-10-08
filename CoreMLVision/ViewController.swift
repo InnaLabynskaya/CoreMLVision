@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Vision
+import CoreML
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -14,6 +16,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var descriptionTextView: UITextView!
     
     private var imagePicker = UIImagePickerController()
+    
+    private var model = GoogLeNetPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +31,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             return
         }
         self.photoImageView.image = pickedImage
+        processImage(image: pickedImage)
     }
     
     @IBAction func openPhotoLibraryButtonPressed(_ sender: UIBarButtonItem) {
         self.present(self.imagePicker, animated: true, completion: nil)
     }
     
+    private func processImage(image: UIImage) {
+        guard let visionModel = try? VNCoreMLModel(for: self.model.model) else {
+            fatalError()
+        }
+        let visionRequest = VNCoreMLRequest(model: visionModel) { (request, error) in
+            
+        }
+    }
 }
 
